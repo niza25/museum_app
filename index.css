@@ -1,3 +1,11 @@
 body{
-    background-color: #FFBA00;
+    background-color: #ffcccc;
+}
+
+img{
+    height: 450px;
+}
+
+a{
+    text-decoration: none;
 }
