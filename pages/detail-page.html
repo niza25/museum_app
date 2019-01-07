@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detail Page</title>
 </head>
+
 <body>
     <main>
         <section>
             <p>Izabela's Mobile Museum App</p>
             <h1>Een vrolijke vioolspeler, Gerard van Honthorst, 1623</h1>
-            <img src="https://lh3.googleusercontent.com/V3sjNgCA_Jssjm0sTKaPZeOwCv_vAPpjllrAF-yAB8UkqIlc6UX_jxJmxH_axVHTHxlK1E7Slecg8K5bIvSbDlw0zg" alt="">
+            <img src="https://lh3.googleusercontent.com/V3sjNgCA_Jssjm0sTKaPZeOwCv_vAPpjllrAF-yAB8UkqIlc6UX_jxJmxH_axVHTHxlK1E7Slecg8K5bIvSbDlw0zg"
+                alt="">
         </section>
         <section id="comments">
             <h2>Comments</h2>
-            <section class="comment"></section>
+            <section class="comment">
+                <h3>Arien said:</h3>
+                <p>"This is definitely one of my favorites!"</p>
+            </section>
         </section>
+        <form onsubmit="submitComment(); return false">
+            <div class="formSection">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div class="formSection">
+                <label for="msg">Message:</label>
+                <textarea id="msg"></textarea>
+            </div>
+            <div class="button">
+                <button type="default">Post your comment</button>
+            </div>
+        </form>
     </main>
-    
+
 </body>
+
 </html>
