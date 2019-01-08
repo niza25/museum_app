@@ -1,11 +1,24 @@
 body{
-    background-color: #ffcccc;
+    background-color: #DEB887;
+    padding: 2rem 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    font-family: 'Karla', sans-serif;
+}
+
+main {
+    background: white;
+    width: 90%;
+    margin: auto;
+    border-radius: 5px;
+    padding: 2rem 0;
+  }
+
+h1{
+    margin: 3rem 1rem 6rem;
 }
 
 img{
     height: 450px;
-}
-
-a{
-    text-decoration: none;
 }
