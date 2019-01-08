@@ -19,6 +19,19 @@ h1{
     margin: 3rem 1rem 6rem;
 }
 
-img{
-    height: 450px;
+h2{
+    margin: auto 2rem;
+}
+
+#gallery{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.artObject{
+    max-width: 80%;
+    max-height: 20rem;
+    margin: 1rem;
 }
