@@ -21,4 +21,12 @@ function submitComment(){
     comment.appendChild(p);
 
     console.log(comment);
+    // adding to the comment section
+    const commentSection = document.getElementById('comments');
+    console.log(commentSection);
+    commentSection.appendChild(comment);
+
+    // empty the inputField
+    inputField.value = null;
+    textAreaField.value = null;
 }
