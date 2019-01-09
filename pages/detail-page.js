@@ -17,8 +17,12 @@ function submitComment() {
         const p = document.createElement('p');
 
         //assign the data
-        h3.innerHTML = `${name} said:`;
-        p.innerHTML = `${msg}`;
+        h3.innerHTML = `${name.charAt(0).toUpperCase() + name.slice(1)} said:`;
+        if (doesNotPassSwearWordsValidation(msg)) {
+            p.innerHTML = `Warning - strong language: ${msg}`;
+        } else {
+            p.innerHTML = `${msg}`;
+        }
         comment.classList.add('comment');
         comment.appendChild(h3);
         comment.appendChild(p);
@@ -34,8 +38,13 @@ function submitComment() {
 }
 
 function doesNotPassAllValidations(name, msg) {
-    if (!name || !msg) {
-        alert('You forgot your name or comment');
+    if (!name) {
+        alert('You forgot your name');
+        return true;
+    }
+
+    if (!msg) {
+        alert('You forgot your comment');
         return true;
     }
 
@@ -45,3 +54,24 @@ function doesNotPassAllValidations(name, msg) {
     }
     return false;
 }
+
+// swear word validation function
+function doesNotPassSwearWordsValidation(text) {
+    let swearWords = new Array("fuck", "fucking", "shit");
+    let alertCount = 0;
+
+    for (let i = 0; i < swearWords.length; i++) {
+        for (let j = 0; j < (text.length); j++) {
+            if (swearWords[i] == text.
+                substring(j, (j + swearWords[i].length)).toLowerCase()) {
+                alertCount++;
+            }
+        }
+    }
+    if (alertCount >= 1) {
+        console.log(alertCount);
+        return true;
+    }
+    return false;
+}
+
