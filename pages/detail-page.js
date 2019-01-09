@@ -1,32 +1,47 @@
-function submitComment(){
+function submitComment() {
     // gather data
     const inputField = document.getElementById('name');
     let name = inputField.value;
     const textAreaField = document.getElementById('msg');
     let msg = textAreaField.value;
-    
+
     console.log(name);
     console.log(msg);
-    
-    // create place for new darta
-    const comment = document.createElement('section');
-    const h3 = document.createElement('h3');
-    const p = document.createElement('p');
 
-    //assign the data
-    h3.innerHTML = `${name} said:`;
-    p.innerHTML = `${msg}`;
-    comment.classList.add('comment');
-    comment.appendChild(h3);
-    comment.appendChild(p);
+    if (doesNotPassAllValidations(name, msg)) {
+        return null;
+    } else {
+        // create place for new data
+        const comment = document.createElement('section');
+        const h3 = document.createElement('h3');
+        const p = document.createElement('p');
 
-    console.log(comment);
-    // adding to the comment section
-    const commentSection = document.getElementById('comments');
-    console.log(commentSection);
-    commentSection.appendChild(comment);
+        //assign the data
+        h3.innerHTML = `${name} said:`;
+        p.innerHTML = `${msg}`;
+        comment.classList.add('comment');
+        comment.appendChild(h3);
+        comment.appendChild(p);
 
-    // empty the inputField
-    inputField.value = null;
-    textAreaField.value = null;
+        // adding to the comment section
+        const commentSection = document.getElementById('comments');
+        commentSection.appendChild(comment);
+
+        // empty the inputField
+        inputField.value = null;
+        textAreaField.value = null;
+    }
+}
+
+function doesNotPassAllValidations(name, msg) {
+    if (!name || !msg) {
+        alert('You forgot your name or comment');
+        return true;
+    }
+
+    if (msg.length > 280) {
+        alert('Sorry, your comment is too long!');
+        return true;
+    }
+    return false;
 }
