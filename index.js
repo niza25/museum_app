@@ -328,7 +328,9 @@ const paintings = data.artObjects;
 
 for (let i = 0; i < paintings.length; i++) {
     let currentPainting = paintings[i];
-    displayPainting(currentPainting);
+    if (doesPassValidation(currentPainting)) {
+        displayPainting(currentPainting);
+    }
 }
 
 function displayPainting(painting) {
@@ -345,6 +347,23 @@ function displayPainting(painting) {
     newImg.setAttribute('class', 'artObject');
     // appending img to a
     newA.appendChild(newImg);
+    // selecting element to append the images
     let h2 = document.querySelector('h2');
+    // appending the images
     h2.after(newA);
+}
+
+
+function doesPassValidation(painting) {
+    // painting needs to return true
+    let imgWidth = painting.webImage.width;
+    let creationYear = painting.longTitle.split(' ').pop();
+    
+    if (imgWidth > 500) {
+        if (painting.principalOrFirstMaker !== "Gerard van Honthorst") {
+            if (creationYear < 1800) {
+                return true;
+            }
+        }
+    }
 }
